@@ -30,6 +30,8 @@ class Router{
         }else{
             http_response_code(404);
             echo json_encode(["erro" => "Recurso não encontrado"]);
+
+            exit;
         }
 
         require_once "../App/Controllers/" . ucfirst($this->controller) . ".php";
