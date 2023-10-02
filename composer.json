@@ -1,0 +1,9 @@
+{
+    "name": "mcl/fparking-api",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+}
