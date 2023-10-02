@@ -10,6 +10,5 @@ class Cliente{
     public $valorTotal;
     public $precoId;
 
-    
 
 }

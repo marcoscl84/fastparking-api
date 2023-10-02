@@ -5,7 +5,7 @@ use App\Core\Model;
 class Preco{
 
     public $id;
-    public $primeitaHora;
+    public $primeiraHora;
     public $demaisHoras;
 
     public function getUltimoInserido(){
@@ -18,7 +18,7 @@ class Preco{
         if($stmt->rowCount() > 0){
             $resultado = $stmt->fetch(PDO::FETCH_OBJ);
 
-            return $resultados;
+            return $resultado;
         } else {
             return null;
         }
@@ -30,8 +30,10 @@ class Preco{
         $sql = "INSERT INTO preco (primeira_hora, demais_horas) VALUES (?, ?)";
 
         $stmt = Model::getConn()->prepare($sql);
-        $stmt = bindValue(1, $this->primeiraHora);
-        $stmt = bindValue(2, $this->demaisHoras);
+        $stmt = Model::getConn()->prepare($sql);
+        $stmt->bindValue(1, $this->primeiraHora);
+        $stmt->bindValue(2, $this->demaisHoras);
+        
 
         if($stmt->execute()){
             $this->id = Model::getConn()->lastInsertId();
